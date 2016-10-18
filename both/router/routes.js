@@ -52,3 +52,67 @@ Router.route('/:shortURL', function () {
     response.writeHead(302, {'Location': location});    
     response.end();
 }, {where: 'server'});
+
+/*
+Router.map(function () {
+    this.route("/short", {
+        path: '/short/:url',
+        where: 'server',
+        layout: null,
+        action: function () {
+            console.log(request);
+            var url = this.params.url;
+            var urlBD = URLs.findOne({shortURL: url});
+            var clientIP = (request.headers['x-forwarded-for'] || '').split(',')[0]
+                       || request.connection.remoteAddress
+                       || request.socket.remoteAddress
+                       || request.connection.socket.remoteAddress      
+            
+            , userAgent = request.headers['user-agent'];
+
+            // si no exsite la creamos y la añadimos
+            if (!urlBD){
+                //Crearlo y redirigir
+                this.response.writeHead(200, {"Content-Type": "application/json"});
+                this.response.end(JSON.stringify({"results": url}));
+            }else{
+                 Meteor.call('/visit/insert', url, clientIP, userAgent);
+            //redirection
+            //MOSTRAR
+            this.response.writeHead(200, {"Content-Type": "application/json"});
+            this.response.end(JSON.stringify({"results": urlBD}));
+            }s 
+        }
+    });
+});
+
+Router.map(function() {
+    this.route('/', {
+        path: '/:url',
+        where: 'server',
+        layout: null,
+        action: function () {
+            console.log(request);
+            var url = this.params.url;
+            var urlBD = URLs.findOne({shortURL: url});
+            var clientIP = (request.headers['x-forwarded-for'] || '').split(',')[0]
+                       || request.connection.remoteAddress
+                       || request.socket.remoteAddress
+                       || request.connection.socket.remoteAddress      
+            
+            , userAgent = request.headers['user-agent'];
+
+            // si no exsite la creamos y la añadimos
+            if (!urlBD){
+                //añadimos visita
+                Meteor.call('/visit/insert', url, clientIP, userAgent);
+                //Crearlo y redirigir
+                //
+                Router.path('url.redirect', {shortURL: url.shortURL}); 
+            }
+            Meteor.call('/visit/insert', url, clientIP, userAgent);
+            //redirection
+            Router.path('url.redirect', {shortURL: url.shortURL}); 
+        }
+    });
+});*/
