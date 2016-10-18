@@ -53,7 +53,7 @@ Router.route('/:shortURL', function () {
     response.end();
 }, {where: 'server'});
 
-/*
+
 Router.map(function () {
     this.route("/short", {
         path: '/short/:url',
@@ -115,4 +115,4 @@ Router.map(function() {
             Router.path('url.redirect', {shortURL: url.shortURL}); 
         }
     });
-});*/
+});

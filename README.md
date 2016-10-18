@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Intro
 ==============
 
@@ -44,3 +45,8 @@ License
 ==============
 
 MIT
+=======
+# PruebaMeteor.url
+
+pruebas
+>>>>>>> df7b5b28f07ec98b06a76e51f5b72b4f40bdaf35
